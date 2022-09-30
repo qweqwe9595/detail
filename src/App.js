@@ -5,10 +5,6 @@ import { Routes, HashRouter, Route } from "react-router-dom";
 import DetailPage from "./DetailPage";
 
 const App = () => (
-  <HashRouter>
-    <Routes>
-      <Route path="/" element={<DetailPage></DetailPage>} />
-    </Routes>
-  </HashRouter>
+  <Layout/>
 );
 ReactDOM.render(<App />, document.getElementById("app"));
