@@ -105,7 +105,7 @@ function DetailPage() {
         }}
         type="secondary"
       >
-        Buy {id}
+        Buy {ide}
       </Button>
 
       <Link to={"/"}>
