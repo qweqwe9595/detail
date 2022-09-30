@@ -26,7 +26,7 @@ const App = () => {
       </Button>
       <Modal title="Cart" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         {items?.map((item,index)=>{
-          return <div id={item+index}><Image height={50} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwmEXh05i6FeGbqaQlldssi6HLLDjp24BlbC9V1Zaqm8c64iR_yfk6O2WsOjnlwMjiYxw&usqp=CAU" />item with id => {item}</div>
+          return <div id={item+index}><Image height={50} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwmEXh05i6FeGbqaQlldssi6HLLDjp24BlbC9V1Zaqm8c64iR_yfk6O2WsOjnlwMjiYxw&usqp=CAU" />item with name => {item}</div>
         })}
       </Modal>
     </>
