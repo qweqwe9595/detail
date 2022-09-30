@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Col, Row, Image, Timeline } from "antd";
+import { Col, Row, Image, Timeline, Button } from "antd";
 import { ThunderboltTwoTone } from "@ant-design/icons";
 import {
   BrowserRouter as Router,
@@ -8,6 +8,7 @@ import {
   Link,
 } from "react-router-dom";
 import { UserContext } from "host/Store";
+import "antd/dist/antd.css";
 
 const recipes = [
   {
@@ -87,7 +88,6 @@ const recipes = [
 function DetailPage() {
   const [user, setUser] = useContext(UserContext);
   const [item, setItem] = useState(null);
-  console.log(user, setUser);
   let params = useParams();
   let localtion = useLocation();
   const [id, setId] = useState();
@@ -99,19 +99,21 @@ function DetailPage() {
 
   return (
     <div style={{ padding: "10px 40px" }}>
-      <button
+      <Button
         onClick={() => {
-          setUser("change Store");
+          setUser((user) => [...user, params?.id]);
         }}
+        type="secondary"
       >
-        Thay đổi global Store của team host{" "}
-      </button>
+        Buy 
+      </Button>
+
       <Link to={"/"}>
         Dùng instane router của team host để chuyển về trang chủ
       </Link>
       <Row>
         <Col span={12}>
-          <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+          <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwmEXh05i6FeGbqaQlldssi6HLLDjp24BlbC9V1Zaqm8c64iR_yfk6O2WsOjnlwMjiYxw&usqp=CAU" />
         </Col>
         <Col span={12} style={{ padding: "20px" }}>
           <h1>You watching {item?.title}</h1>

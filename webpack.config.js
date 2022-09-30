@@ -1,6 +1,14 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
+const detailURL = "detail@https://teamdetail.netlify.app/remoteEntry.js";
+const adsURL = "ads@https://teamads.netlify.app/remoteEntry.js";
+const hostURL = "host@https://teamhost.netlify.app/remoteEntry.js";
+
+// const hostURL = "host@http://localhost:3000/remoteEntry.js";
+// const adsURL = "ads@http://localhost:8002/remoteEntry.js";
+// const detailURL = "detail@http://localhost:8001/remoteEntry.js";
+
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
@@ -41,13 +49,14 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "detailPage",
+      name: "detail",
       filename: "remoteEntry.js",
       remotes: {
-        host: "host@https://mcrohomeapp.netlify.app//remoteEntry.js"
+        host: hostURL,
       },
       exposes: {
-        "./Layout":"./src/Layout.js"
+        "./Detail": "./src/DetailPage.js",
+        "./Cart": "./src/CartPage.js",
       },
       shared: {
         ...deps,
